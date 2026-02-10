@@ -1,0 +1,15 @@
+{
+  "tyndp_demand_parameters": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/tyndp_demand_parameters.csv",
+  "iron_and_steel": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/iron_and_steel.csv",
+  "aluminium": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/aluminium.csv",
+  "ammonia": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/ammonia.csv",
+  "methanol": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/methanol.csv",
+  "olefins": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/olefins.csv",
+  "initial_steel_demand": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/initial_steel_demand.csv",
+  "initial_ammonia_demand": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/initial_ammonia_demand.csv",
+  "initial_methanol_demand": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/initial_methanol_demand.csv",
+  "demand_naphta": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/demand_naphta.csv",
+  "demand_olefins": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/demand_olefins.csv",
+  "refinery_output": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/refinery_output.csv",
+  "estat_refinery_output_long": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/data/raw/estat_refinery_output_long.csv"
+}
