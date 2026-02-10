@@ -1,0 +1,223 @@
+# -------------------------------------------------------------------
+# Définition de l'horizon temporel de scénarisation
+# -------------------------------------------------------------------
+years:
+  # Première année du continuum temporel.
+  # Cette année doit impérativement exister dans le CSV d'entrée,
+  # car elle sert de point d'ancrage (année de base).
+  start: 2019
+
+  # Dernière année du continuum temporel.
+  # Toutes les trajectoires sont construites de façon annuelle
+  # et doivent couvrir intégralement [start, end] sans trou.
+  end: 2050
+
+
+# -------------------------------------------------------------------
+# Paramètres d'entrée : données sources et sélection de la base
+# -------------------------------------------------------------------
+input:
+  # Chemin vers le fichier CSV source contenant les données acier.
+  # Ce fichier est considéré comme "read-only" :
+  # il n'est jamais modifié par le notebook.
+  csv_path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/industry/data/raw/iron_and_steel.csv"
+
+  # Année de référence utilisée pour :
+  # - extraire les valeurs initiales de production
+  # - appliquer les CAGR
+  # - identifier les pays/scénarios disponibles
+  base_year: 2019
+
+  # Sélection des pays.
+  # La valeur spéciale "ALL" signifie :
+  # → tous les pays présents dans le CSV pour l'année base_year.
+  #
+  # Cela garantit :
+  # - une couverture complète de la base JRC
+  # - l'absence de liste codée en dur dans le notebook
+  #
+  # Alternative possible :
+  # countries: ["DE", "FR", "PL"]
+  countries: ALL
+
+  # Sélection des scénarios TYNDP utilisés comme base.
+  #
+  # Ces valeurs doivent correspondre EXACTEMENT aux libellés
+  # présents dans la colonne 'scenario' du CSV d'entrée.
+  #
+  # Exemple courant :
+  # - GA : Global Ambition
+  # - ST : Sustainable Transition (ou autre, selon la base)
+  #
+  # Chaque scénario TYNDP est ensuite décliné en scénarios technologiques.
+  base_scenarios: ["GA"]
+
+
+# -------------------------------------------------------------------
+# Paramètres de sortie : structure des fichiers générés
+# -------------------------------------------------------------------
+output:
+  # Répertoire racine où seront écrits tous les résultats.
+  # Le notebook ne crée que des sous-dossiers ici,
+  # sans jamais écraser les données d'entrée.
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-steel"
+
+  # Mapping entre le nom logique du scénario technologique
+  # et le nom du sous-dossier correspondant.
+  #
+  # Chaque sous-dossier contiendra :
+  # - iron_and_steel.csv   (données principales)
+  # - dri_mix.csv          (ratio CH4 / H2 pour le DRI)
+  # - bf_fuel_mix.csv      (si applicable)
+  scenario_dirs:
+    full-dri-eaf: "full-dri-eaf"
+    full-bf-bof-ccus: "full-bf-bof-ccus"
+    import-dri: "import-dri"
+    intermerdiary: "intermerdiary"
+
+
+# -------------------------------------------------------------------
+# Hypothèses macro : évolution de la production totale d'acier
+# -------------------------------------------------------------------
+steel_cagr: {}
+# Dictionnaire optionnel de CAGR par pays.
+#
+# - Si un pays n'est pas listé ici : CAGR = 0.0 par défaut
+#   → production d'acier constante dans le temps.
+#
+# Exemple d'usage :
+# steel_cagr:
+#   DE: -0.005   # décroissance de 0.5%/an
+#   PL:  0.01    # croissance de 1%/an
+#
+# Le choix d'un CAGR constant est volontairement simple
+# et transparent pour la scénarisation initiale.
+
+
+# -------------------------------------------------------------------
+# Définition des scénarios technologiques acier
+# -------------------------------------------------------------------
+scenarios:
+
+  # ===============================================================
+  # Scénario 1 : Full DRI-EAF à long terme
+  # ===============================================================
+  full-dri-eaf:
+    # Année de début de la substitution BF → DRI.
+    dri_ramp_start: 2025
+
+    # Année à laquelle la transition est considérée complète
+    # (100% de la production bascule vers DRI-EAF).
+    dri_ramp_end: 2050
+
+    # Nombre d'années pendant lesquelles le DRI nouvellement déployé
+    # fonctionne exclusivement au CH4 (gaz naturel).
+    # Hypothèse réaliste de démarrage industriel sans H2.
+    dri_ch4_only_years: 5
+
+    # Durée de montée progressive du ratio H2 dans le DRI,
+    # après la phase CH4-only.
+    # Une fois la rampe terminée, le DRI est 100% H2.
+    dri_h2_ramp_years: 10
+
+
+  # ===============================================================
+  # Scénario 2 : BF-BOF avec CCUS, biomasse et H2 + DRI tardif
+  # ===============================================================
+  full-bf-bof-ccus:
+    # Début tardif de l'introduction du DRI.
+    dri_ramp_start: 2035
+
+    # Fin de la rampe DRI.
+    dri_ramp_end: 2050
+
+    # Part maximale de la production acier réalisée via DRI en 2050.
+    # Le reste demeure en BF-BOF.
+    dri_max_share_2050: 0.35
+
+    # Phase initiale CH4-only pour le DRI.
+    dri_ch4_only_years: 5
+
+    # Durée de la montée du H2 dans le DRI.
+    dri_h2_ramp_years: 10
+
+    # Part maximale de biomasse injectable dans le BF.
+    # Hypothèse technique plafonnée à 50%.
+    bf_biomass_max_share: 0.50
+
+    # Part maximale d'injection d'hydrogène dans le BF.
+    # Hypothèse conservatrice (≤ 20%).
+    bf_h2_injection_max_share: 0.20
+
+    # Début de la montée du mix biomasse / H2 dans le BF.
+    bf_fuel_ramp_start: 2030
+
+    # Année à laquelle les parts maximales sont atteintes.
+    bf_fuel_ramp_end: 2045
+
+    # Taux de capture CCS au début de la période (souvent 0).
+    ccs_capture_rate_start: 0.0
+
+    # Taux de capture CCS cible en régime stabilisé.
+    # Typiquement entre 65% et 75%.
+    ccs_capture_rate_end: 0.70
+
+    # Début de la montée en puissance du CCS.
+    ccs_ramp_start: 2030
+
+    # Fin de la montée du CCS (capture stabilisée).
+    ccs_ramp_end: 2040
+
+
+  # ===============================================================
+  # Scénario 3 : DRI importé + EAF (pas de H2 domestique)
+  # ===============================================================
+  import-dri:
+    # Début de la substitution BF → DRI importé.
+    dri_ramp_start: 2025
+
+    # Fin de la substitution.
+    dri_ramp_end: 2050
+
+    # Convention importante (implémentée dans le code) :
+    # - aucune consommation d'H2 domestique n'est comptabilisée
+    # - la route DRI/EAF importée est mappée sur
+    #   dri_network_gas_production comme proxy technique
+
+
+  # ===============================================================
+  # Scénario 4 : Intermédiaire (transition progressive)
+  # ===============================================================
+  intermerdiary:
+    # Début plus tardif de la montée du DRI.
+    dri_ramp_start: 2030
+
+    # Fin de la rampe.
+    dri_ramp_end: 2050
+
+    # Part maximale du DRI en 2050 (pas de bascule complète).
+    dri_max_share_2050: 0.65
+
+    # Phase CH4-only du DRI.
+    dri_ch4_only_years: 5
+
+    # Montée plus lente du H2 dans le DRI que dans le scénario full.
+    dri_h2_ramp_years: 15
+
+
+demand_factors:
+  enabled: true
+
+  # Unités : kg de gaz par tonne d'acier produite via la route concernée
+  h2_kg_per_t_steel: 0.077
+  ch4_kg_per_t_steel: 0.2281
+
+  # Noms des colonnes à écrire (évite la magie)
+  h2_column_name: "h2_demand"
+  ch4_column_name: "ch4_demand"
+
+recycling:
+  enabled: true
+  target_share_2050: 0.50
+  ramp_start: 2019
+  ramp_end: 2050

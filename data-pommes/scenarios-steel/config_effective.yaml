@@ -1,0 +1,57 @@
+years:
+  start: 2019
+  end: 2050
+input:
+  csv_path: /Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/industry/data/raw/iron_and_steel.csv
+  base_year: 2019
+  countries: ALL
+  base_scenarios:
+  - GA
+output:
+  base_dir: /Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-steel
+  scenario_dirs:
+    full-dri-eaf: full-dri-eaf
+    full-bf-bof-ccus: full-bf-bof-ccus
+    import-dri: import-dri
+    intermerdiary: intermerdiary
+steel_cagr: {}
+scenarios:
+  full-dri-eaf:
+    dri_ramp_start: 2025
+    dri_ramp_end: 2050
+    dri_ch4_only_years: 5
+    dri_h2_ramp_years: 10
+  full-bf-bof-ccus:
+    dri_ramp_start: 2035
+    dri_ramp_end: 2050
+    dri_max_share_2050: 0.35
+    dri_ch4_only_years: 5
+    dri_h2_ramp_years: 10
+    bf_biomass_max_share: 0.5
+    bf_h2_injection_max_share: 0.2
+    bf_fuel_ramp_start: 2030
+    bf_fuel_ramp_end: 2045
+    ccs_capture_rate_start: 0.0
+    ccs_capture_rate_end: 0.7
+    ccs_ramp_start: 2030
+    ccs_ramp_end: 2040
+  import-dri:
+    dri_ramp_start: 2025
+    dri_ramp_end: 2050
+  intermerdiary:
+    dri_ramp_start: 2030
+    dri_ramp_end: 2050
+    dri_max_share_2050: 0.65
+    dri_ch4_only_years: 5
+    dri_h2_ramp_years: 15
+demand_factors:
+  enabled: true
+  h2_kg_per_t_steel: 0.077
+  ch4_kg_per_t_steel: 0.2281
+  h2_column_name: h2_demand
+  ch4_column_name: ch4_demand
+recycling:
+  enabled: true
+  target_share_2050: 0.5
+  ramp_start: 2019
+  ramp_end: 2050
