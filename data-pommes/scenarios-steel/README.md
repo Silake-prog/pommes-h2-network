@@ -13,53 +13,38 @@ Toutes les hypothèses sont **paramétrées, traçables et explicites** via le f
 
 ## 1. Point de départ commun à tous les scénarios
 
+Ce document décrit la construction des quatre scénarios technologiques de production d’acier utilisés dans le module industrie du projet POMMES–H₂.
+
+L’objectif est de transformer une situation observée en année de base (2019) en trajectoires cohérentes jusqu’en 2050, en conservant :
+	•	la production totale d’acier,
+	•	les capacités existantes,
+	•	la cohérence comptable entre routes technologiques,
+	•	une montée progressive des technologies bas-carbone.
+
 ### 1.1 Données de base (année 2019)
 
-Pour chaque couple `(country, base_scenario)` :
+Pour chaque pays c, on dispose en 2019 de :
+	•	S(c,2019) : production totale d’acier
+	•	BF(c,2019) : production BF-BOF
+	•	DRI_CH4(c,2019) : DRI au gaz naturel
+	•	DRI_H2(c,2019) : DRI à l’hydrogène
 
-- Production totale d’acier :
-\[
-S_{c,2019} = \texttt{steel\_production}_{2019}
-\]
-
-- Routes observées :
-  - Haut-fourneau / convertisseur à oxygène (BF-BOF) :
-\[
-BF_{c,2019} = \texttt{blastfurnace\_bof\_production}_{2019}
-\]
-  - DRI au gaz naturel :
-\[
-DRI^{CH4}_{c,2019}
-\]
-  - DRI à l’hydrogène :
-\[
-DRI^{H2}_{c,2019}
-\]
-
-- Acier secondaire (EAF-scrap), **reconstruit par bilan de masse** :
-\[
-EAF_{c,2019} =
-S_{c,2019}
-- \left(
-BF_{c,2019}
-+ DRI^{CH4}_{c,2019}
-+ DRI^{H2}_{c,2019}
-\right)
-\]
-
-Cette reconstruction est **strictement comptable** : aucune hypothèse technologique supplémentaire n’est introduite.
-
+La production EAF (acier secondaire, scrap) est reconstruite comme résidu :
+EAF_scrap(c,2019) = S(c,2019) − [ BF(c,2019) + DRI_CH4(c,2019) + DRI_H2(c,2019) ]
+Condition de validité :
+EAF(c,2019) >= 0
 ---
 
 ### 1.2 Projection de la production totale d’acier
 
-La production totale d’acier est projetée par pays à l’aide d’un **taux de croissance annuel composé (CAGR)** constant :
+2. Production totale d’acier (commune à tous les scénarios)
 
-\[
-S_{c,t} =
-S_{c,2019}
-\times (1 + \text{CAGR}_c)^{(t - 2019)}
-\]
+La production totale d’acier est projetée via un CAGR constant par pays :
+
+S(c,t) = S(c,2019) * (1 + CAGR(c))^(t − 2019)
+
+Si CAGR(c) = 0, alors :
+S(c,t) = S(c,2019)
 
 - Le CAGR est paramétrable par pays (par défaut nul).
 - Cette trajectoire est **identique pour tous les scénarios**.
@@ -73,36 +58,39 @@ Hypothèse transversale à **tous les scénarios** :
 
 - Objectif : **50 % d’acier secondaire en 2050**,
 - **Exception** : si un pays est déjà au-dessus de 50 % en 2019, sa part est conservée (aucune baisse forcée),
-- Évolution **linéaire** entre 2019 et 2050.
+- Évolution **linéaire** entre 2019 et 2050 (rampe linéaire entre recycling.ramp_start et recycling.ramp_end (par défaut 2019→2050))
 
-Soit :
-- Part initiale :
-\[
-s_{c,2019} = \frac{EAF_{c,2019}}{S_{c,2019}}
-\]
-- Cible :
-\[
-s^{target} = 0.5
-\]
+La rampe est paramétrée dans steel_config.yaml :
+- recycling.ramp_start (défaut : 2019)
+- recycling.ramp_end   (défaut : 2050)
 
-Part en 2050 :
-\[
-s_{c,2050} = \max(s_{c,2019}, s^{target})
-\]
+Principe général
 
-Trajectoire temporelle :
-\[
-s_{c,t} =
-s_{c,2019}
-+ \lambda_t \cdot (s_{c,2050} - s_{c,2019})
-\]
+Pour chaque pays c, on définit la part d’acier secondaire :
 
-où \(\lambda_t \in [0,1]\) est une rampe linéaire entre 2019 et 2050.
+share_EAF(c,2019) = EAF(c,2019) / S(c,2019)
 
-Production EAF :
-\[
-EAF_{c,t} = s_{c,t} \cdot S_{c,t}
-\]
+Objectif européen :
+
+share_EAF_target = 0.50 en 2050
+
+Règle d’application
+	•	Si share_EAF(c,2019) >= 0.50
+→ la part EAF est maintenue constante
+	•	Si share_EAF(c,2019) < 0.50
+→ montée linéaire vers 50 % en 2050
+
+Formellement :
+
+share_EAF(c,t) =
+  max(
+    share_EAF(c,2019),
+    share_EAF(c,2019) + (0.50 − share_EAF(c,2019)) * (t − 2019) / (2050 − 2019)
+  )
+
+La production EAF devient :
+
+EAF(c,t) = share_EAF(c,t) * S(c,t)
 
 ---
 
@@ -110,9 +98,13 @@ EAF_{c,t} = s_{c,t} \cdot S_{c,t}
 
 La production primaire (routes BF + DRI) est définie par :
 
-\[
-P_{c,t} = S_{c,t} - EAF_{c,t}
-\]
+PRIMARY(c,t) = S(c,t) − EAF(c,t)
+Contrainte :
+PRIMARY(c,t) >= 0
+
+Cette production primaire est la seule répartie entre :
+	•	DRI-EAF
+	•	BF-BOF
 
 Toutes les dynamiques technologiques des scénarios (DRI, BF-BOF, CCUS, etc.)
 s’appliquent **exclusivement à cette masse primaire**.
@@ -121,26 +113,40 @@ s’appliquent **exclusivement à cette masse primaire**.
 
 ## 2. Structure commune aux scénarios
 
-Pour chaque scénario :
+5. Définition générique de la part DRI
 
-\[
-P_{c,t} = BF_{c,t} + DRI_{c,t}
-\]
+Dans tous les scénarios, on définit une cible de part DRI :
 
-avec :
-\[
-DRI_{c,t} = DRI^{CH4}_{c,t} + DRI^{H2}_{c,t}
-\]
+share_DRI_target(c,t)
 
-### Ancrage sur l’existant
+La production DRI est alors ancrée sur l’existant :
 
-Dans tous les scénarios, on impose :
+DRI_target(c,t) = PRIMARY(c,t) * share_DRI_target(c,t)
 
-\[
-DRI_{c,t} \ge DRI_{c,2019}
-\]
+DRI(c,t) = max(
+  DRI(c,2019),
+  DRI_target(c,t)
+)
 
-Il n’y a **jamais de désinstallation rétroactive** de capacités existantes.
+Attention : l’ancrage empêche la désinstallation du DRI existant, même si la montée du scrap réduit la masse primaire disponible.
+
+La production BF-BOF est résiduelle :
+
+BF(c,t) = PRIMARY(c,t) − DRI(c,t)
+
+Mix énergétique du DRI
+
+Le DRI est partagé entre CH4 et H2 selon une rampe temporelle :
+	•	phase initiale : 100 % CH4
+	•	transition progressive vers H2
+
+share_H2_DRI(t) = ramp(t; t_start + N_CH4_only , t_start + N_CH4_only + N_H2_ramp)
+share_CH4_DRI(t) = 1 − share_H2_DRI(t)
+
+Avec : 
+
+DRI_H2(c,t)  = DRI(c,t) * share_H2_DRI(t)
+DRI_CH4(c,t) = DRI(c,t) * share_CH4_DRI(t)
 
 ---
 
@@ -154,23 +160,26 @@ Il n’y a **jamais de désinstallation rétroactive** de capacités existantes.
 Transition maximale vers la filière **DRI–EAF**, avec disparition progressive du BF-BOF.
 
 **Hypothèses principales**
-- La totalité de la production primaire devient DRI à l’horizon 2050 :
-\[
-DRI_{c,2050} = P_{c,2050}
-\]
-- Le BF-BOF devient strictement résiduel :
-\[
-BF_{c,t} = P_{c,t} - DRI_{c,t}
-\]
+
+
+7.1 Full DRI-EAF
+
+Logique
+Décarbonation maximale de la production primaire via DRI, tout en conservant :
+	•	la montée du scrap (EAF),
+	•	l’existant DRI en 2019.
+
+share_DRI_target(t) → 1.0 en 2050
+
+donc : 
+
+BF(c,2050) ≈ 0
 
 **Mix énergétique du DRI**
 - Phase initiale 100 % gaz naturel,
 - Introduction progressive de l’hydrogène après une période de transition,
 - Substitution CH₄ → H₂ par rampe linéaire :
 
-\[
-DRI^{H2}_{c,t} = \alpha_t \cdot DRI_{c,t}
-\]
 
 ---
 
@@ -180,20 +189,8 @@ DRI^{H2}_{c,t} = \alpha_t \cdot DRI_{c,t}
 Maintien dominant du BF-BOF, avec décarbonation via **CCUS**, biomasse et injection d’hydrogène.
 
 **Hypothèses principales**
-- La part DRI est **plafonnée** :
-\[
-DRI_{c,2050} = \theta \cdot P_{c,2050}, \quad \theta < 1
-\]
+share_DRI_target(c,2050) = valeur plafonnée (ex: 0.35)
 - Le reste du primaire est produit via BF-BOF.
-
-**BF-BOF**
-- Substitution partielle du charbon par :
-  - biomasse (≤ 50 %),
-  - hydrogène (≤ 20 %),
-- Mise en place progressive du CCUS avec un taux de capture croissant :
-\[
-\text{capture\_rate}_t \in [0, \text{max}]
-\]
 
 > Le CCUS agit **uniquement sur les émissions**, jamais sur le volume d’acier produit.
 
@@ -210,12 +207,8 @@ Externalisation de la production de DRI hors Europe, avec transformation locale 
 - Le DRI importé est comptabilisé comme DRI non-H₂ (proxy gaz).
 
 Formellement :
-\[
-DRI^{H2}_{c,t} = DRI^{H2}_{c,2019}
-\]
-\[
-DRI^{CH4}_{c,t} = DRI_{c,t} - DRI^{H2}_{c,2019}
-\]
+DRI_H2(c,t) = DRI_H2(c,2019)
+DRI_CH4(c,t) = DRI(c,t) − DRI_H2(c,2019)
 
 ---
 
@@ -231,22 +224,6 @@ Trajectoire intermédiaire, sans rupture technologique majeure.
 
 ---
 
-## 4. Demande énergétique associée
-
-Deux colonnes de demande sont calculées pour chaque scénario :
-
-- Demande en hydrogène :
-\[
-H2\_demand_{c,t} = 0.077 \times DRI^{H2}_{c,t}
-\]
-
-- Demande en gaz naturel (proxy CH₄) :
-\[
-CH4\_demand_{c,t} = 0.2281 \times DRI^{CH4}_{c,t}
-\]
-
-Unités : **kg de gaz par tonne d’acier produite via la route concernée**.  
-Les facteurs sont **paramétrés dans le YAML**.
 
 ---
 
@@ -254,19 +231,11 @@ Les facteurs sont **paramétrés dans le YAML**.
 
 Tous les scénarios respectent strictement :
 
-\[
-S_{c,t} =
-EAF_{c,t}
-+ BF_{c,t}
-+ DRI^{CH4}_{c,t}
-+ DRI^{H2}_{c,t}
-\]
-
-avec :
-- continuité annuelle stricte (2019–2050),
-- non-négativité de toutes les productions,
-- traçabilité complète des hypothèses et paramètres.
-
+S(c,t) =
+  EAF(c,t)
++ DRI_CH4(c,t)
++ DRI_H2(c,t)
++ BF(c,t)
 ---
 
 ## 6. Philosophie générale
