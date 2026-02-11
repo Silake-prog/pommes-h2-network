@@ -1,0 +1,52 @@
+years:
+  start: 2019
+  end: 2050
+input:
+  csv_path: /Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/industry/data/raw/ammonia.csv
+  base_year: 2019
+  countries: ALL
+output:
+  base_dir: /Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-ammonia
+  scenario_dirs:
+    full-eu-nh3: full-eu-nh3
+    import-eu-nh3: import-eu-nh3
+    intermediary-eu-nh3: intermediary-eu-nh3
+constants:
+  hb_electricity_kwh_per_t_nh3: 0.98522
+  h2_t_per_t_nh3: 0.18
+  smr_stoich_ch4_t_per_t_h2: 2.0
+  smr_h2_efficiency: 0.76
+maritime:
+  enabled: true
+  base_2019_t: 0.0
+  cagr: 0.05
+  allocation: proportional_to_base
+plateau:
+  step_years: 5
+scenarios:
+  full-eu-nh3:
+    domestic_share_2019: 1.0
+    domestic_share_2050: 1.0
+    decarb_start: 2030
+    decarb_end: 2050
+    h2_route_share_2050: 1.0
+  import-eu-nh3:
+    domestic_share_2019: 1.0
+    domestic_share_2050: 0.5
+    decarb_start: 2030
+    decarb_end: 2050
+    h2_route_share_2050: 1.0
+    no_import_countries:
+    - AT
+    - HU
+    - SK
+  intermediary-eu-nh3:
+    domestic_share_2019: 1.0
+    domestic_share_2050: 0.85
+    decarb_start: 2020
+    decarb_end: 2050
+    h2_route_share_2050: 1.0
+    no_import_countries:
+    - AT
+    - HU
+    - SK

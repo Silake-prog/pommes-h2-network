@@ -1,0 +1,102 @@
+# -------------------------------------------------------------------
+# Horizon temporel
+# -------------------------------------------------------------------
+years:
+  start: 2019
+  end: 2050
+
+# -------------------------------------------------------------------
+# Entrées
+# -------------------------------------------------------------------
+input:
+  # CSV sans en-tête : country, base_scenario, year, nh3_consumption_t
+  csv_path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/industry/data/raw/ammonia.csv"
+  base_year: 2019
+  countries: ALL
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+output:
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-ammonia"
+  scenario_dirs:
+    full-eu-nh3: "full-eu-nh3"
+    import-eu-nh3: "import-eu-nh3"
+    intermediary-eu-nh3: "intermediary-eu-nh3"
+
+
+
+# -------------------------------------------------------------------
+# Constantes & conversions
+# -------------------------------------------------------------------
+constants:
+  # Vos constantes (conservées telles quelles)
+  hb_electricity_kwh_per_t_nh3: 0.98522
+  h2_t_per_t_nh3: 0.18
+
+  # CH4 -> H2 (SMR)
+  # Théorique : 2.0 tCH4 / tH2 (stoéchiométrie)
+  smr_stoich_ch4_t_per_t_h2: 2.0
+  # Efficacité procédé (0,1]
+  smr_h2_efficiency: 0.76
+
+# -------------------------------------------------------------------
+# Paramètre commun : taille des plateaux
+# -------------------------------------------------------------------
+maritime:
+  enabled: true
+
+  # Demande maritime additionnelle en 2019 (en tonnes NH3)
+  # - 0.0 => on ajoute uniquement de la croissance à partir de 0
+  # - si vous avez une estimation 2019, mettez-la ici
+  base_2019_t: 0.0
+
+  # Croissance annuelle composée (linéaire en taux annuel, i.e. CAGR constant)
+  # Exemple: 0.05 = +5%/an
+  cagr: 0.05
+
+  # Allocation spatiale de la demande maritime :
+  # - "proportional_to_base" : répartie proportionnellement à la conso NH3 2019 de chaque (country, base_scenario)
+  # - "equal_by_country"     : répartie uniformément entre pays
+  allocation: "proportional_to_base"
+
+plateau:
+  step_years: 5
+
+# -------------------------------------------------------------------
+# Scénarios NH3
+# -------------------------------------------------------------------
+scenarios:
+
+  # 1) Full EU : domestic = consommation (import = 0)
+  # Décarbonation : CH4-route -> H2-route jusqu'à 100% H2 en 2050 (plateaux 5 ans)
+  full-eu-nh3:
+    domestic_share_2019: 1.0
+    domestic_share_2050: 1.0
+
+    decarb_start: 2030
+    decarb_end: 2050
+    # Part H2-route (h2_to_nh3) en 2050
+    h2_route_share_2050: 1.0
+
+  # 2) Import : domestic décline vers 50% en 2050 (plateaux 5 ans), le reste importé
+  # Décarbonation du domestic : CH4-route -> H2-route jusqu'à 100% H2 en 2050
+  import-eu-nh3:
+    domestic_share_2019: 1.0
+    domestic_share_2050: 0.5
+
+    decarb_start: 2030
+    decarb_end: 2050
+    h2_route_share_2050: 1.0
+    no_import_countries: ["AT", "HU", "SK"]
+
+  # 3) Intermédiaire : domestic décline vers 85% en 2050 (plateaux 5 ans), le reste importé
+  # Décarbonation du domestic : CH4-route -> H2-route jusqu'à 100% H2 en 2050
+  intermediary-eu-nh3:
+    domestic_share_2019: 1.0
+    domestic_share_2050: 0.85
+
+    decarb_start: 2020
+    decarb_end: 2050
+    h2_route_share_2050: 1.0
+    no_import_countries: ["AT", "HU", "SK"]
