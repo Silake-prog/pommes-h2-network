@@ -55,3 +55,5 @@ recycling:
   target_share_2050: 0.5
   ramp_start: 2019
   ramp_end: 2050
+bf_ccs_tech_ramp_start: 2035
+bf_ccs_tech_ramp_end: 2050
