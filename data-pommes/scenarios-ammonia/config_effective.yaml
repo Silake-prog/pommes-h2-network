@@ -12,7 +12,7 @@ output:
     import-eu-nh3: import-eu-nh3
     intermediary-eu-nh3: intermediary-eu-nh3
 constants:
-  hb_electricity_kwh_per_t_nh3: 0.98522
+  hb_electricity_mwh_per_t_nh3: 0.98522
   h2_t_per_t_nh3: 0.18
   smr_stoich_ch4_t_per_t_h2: 2.0
   smr_h2_efficiency: 0.76

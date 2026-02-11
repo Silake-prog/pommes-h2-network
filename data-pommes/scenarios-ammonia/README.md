@@ -204,7 +204,7 @@ CH4_c(t) =
 
 Consommation spécifique :
 
-0.98522 kWh / t NH3
+0.98522 MWh / t NH3
 
 Appliquée à la production domestique :
 

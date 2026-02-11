@@ -1,4 +1,4 @@
-country,base_scenario,scenario,year,nh3_consumption_t,nh3_domestic_t,nh3_imported_t,nh3_domestic_ch4_to_h2_to_nh3_t,nh3_domestic_h2_to_nh3_t,h2_demand_network_t,h2_produced_onsite_t,nh3_core_t,nh3_maritime_t,ch4_demand_for_h2_t,ch4_demand_for_nh3_t,hb_electricity_kwh,domestic_share,h2_route_share_of_domestic
+country,base_scenario,scenario,year,nh3_consumption_t,nh3_domestic_t,nh3_imported_t,nh3_domestic_ch4_to_h2_to_nh3_t,nh3_domestic_h2_to_nh3_t,h2_demand_network_t,h2_produced_onsite_t,nh3_core_t,nh3_maritime_t,ch4_demand_for_h2_t,ch4_demand_for_nh3_t,hb_electricity_mwh,domestic_share,h2_route_share_of_domestic
 AT,DE,intermediary-eu-nh3,2019,455000.0,455000.0,0.0,455000.0,0.0,0.0,81900.0,455000.0,0.0,215526.3157894737,215526.3157894737,448275.1,1.0,0.0
 AT,DE,intermediary-eu-nh3,2020,455000.0,455000.0,0.0,455000.0,0.0,0.0,81900.0,455000.0,0.0,215526.3157894737,215526.3157894737,448275.1,1.0,0.0
 AT,DE,intermediary-eu-nh3,2021,455000.0,455000.0,0.0,455000.0,0.0,0.0,81900.0,455000.0,0.0,215526.3157894737,215526.3157894737,448275.1,1.0,0.0

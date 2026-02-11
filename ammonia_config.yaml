@@ -31,7 +31,7 @@ output:
 # -------------------------------------------------------------------
 constants:
   # Vos constantes (conservées telles quelles)
-  hb_electricity_kwh_per_t_nh3: 0.98522
+  hb_electricity_mwh_per_t_nh3: 0.98522
   h2_t_per_t_nh3: 0.18
 
   # CH4 -> H2 (SMR)
