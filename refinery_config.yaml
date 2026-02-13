@@ -1,0 +1,100 @@
+# -------------------------------------------------------------------
+# Horizon temporel
+# -------------------------------------------------------------------
+years:
+  start: 2019
+  end: 2050
+
+# -------------------------------------------------------------------
+# Entrées
+# -------------------------------------------------------------------
+input:
+  csv_path: "industry/data/raw/refinery_output.csv"
+  base_year: 2019
+  scenario: "DE"     # <= nom exact dans le CSV
+  countries: ALL
+
+
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+output:
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenario-refinery"
+  scenario_dirs:
+    more-molecule: "refinery-eu-demand_more-molecule"
+    max-electron: "refinery-eu-demand_max-electron"
+
+# -------------------------------------------------------------------
+# Hypothèses Concawe + options calcul
+# -------------------------------------------------------------------
+refinery:
+  inefficiency_share: 0.14   # 14% "with inefficiencies"
+
+  # Convention:
+  # - On utilise Concawe pour obtenir des parts techno: share(t)=cap_unit(t)/sum caps(t)
+  # - On applique ces shares au refinery_output(t) (proxy "total feed processed by these units")
+  # - Puis H2_unit(t) = feed_unit(t) * spec_cons_wt / 100 * (1 + inefficiency_share)
+
+  concawe_years: [2024, 2030, 2040, 2050]
+
+  scenarios:
+    max-electron:
+      units:
+        Residue Hydrocracker:
+          spec_cons_wt: 4.07
+          utilized_capacity_mton: {2024: 0.97, 2030: 0.32, 2040: 0.00, 2050: 0.00}
+        VGO Hydrocracker:
+          spec_cons_wt: 2.90
+          utilized_capacity_mton: {2024: 71.60, 2030: 54.50, 2040: 27.86, 2050: 12.36}
+        Resid Hydrotreater:
+          spec_cons_wt: 1.43
+          utilized_capacity_mton: {2024: 0.12, 2030: 0.01, 2040: 0.00, 2050: 0.00}
+        VGO Hydrotreater:
+          spec_cons_wt: 1.20
+          utilized_capacity_mton: {2024: 29.63, 2030: 22.53, 2040: 4.03, 2050: 0.00}
+        Diesel Hydrotreater:
+          spec_cons_wt: 0.80
+          utilized_capacity_mton: {2024: 149.70, 2030: 92.65, 2040: 38.05, 2050: 15.00}
+        FCC Gasoline Hydrotreater:
+          spec_cons_wt: 0.24
+          utilized_capacity_mton: {2024: 10.49, 2030: 5.32, 2040: 4.80, 2050: 1.21}
+        Kero Hydrotreater:
+          spec_cons_wt: 0.20
+          utilized_capacity_mton: {2024: 11.02, 2030: 11.94, 2040: 5.84, 2050: 2.84}
+        Naphtha Hydrotreater:
+          spec_cons_wt: 0.12
+          utilized_capacity_mton: {2024: 76.67, 2030: 51.76, 2040: 13.61, 2050: 3.34}
+        Naphtha Isomerization:
+          spec_cons_wt: 0.09
+          utilized_capacity_mton: {2024: 18.38, 2030: 14.19, 2040: 2.72, 2050: 0.14}
+
+    more-molecule:
+      units:
+        Residue Hydrocracker:
+          spec_cons_wt: 4.07
+          utilized_capacity_mton: {2024: 0.97, 2030: 0.71, 2040: 0.00, 2050: 0.81}
+        VGO Hydrocracker:
+          spec_cons_wt: 2.90
+          utilized_capacity_mton: {2024: 71.60, 2030: 55.27, 2040: 29.69, 2050: 15.20}
+        Resid Hydrotreater:
+          spec_cons_wt: 1.43
+          utilized_capacity_mton: {2024: 0.12, 2030: 0.01, 2040: 0.00, 2050: 0.00}
+        VGO Hydrotreater:
+          spec_cons_wt: 1.20
+          utilized_capacity_mton: {2024: 29.63, 2030: 12.48, 2040: 3.99, 2050: 0.19}
+        Diesel Hydrotreater:
+          spec_cons_wt: 0.80
+          utilized_capacity_mton: {2024: 149.70, 2030: 94.35, 2040: 38.99, 2050: 13.15}
+        FCC Gasoline Hydrotreater:
+          spec_cons_wt: 0.24
+          utilized_capacity_mton: {2024: 10.49, 2030: 5.18, 2040: 5.26, 2050: 1.14}
+        Kero Hydrotreater:
+          spec_cons_wt: 0.20
+          utilized_capacity_mton: {2024: 11.02, 2030: 13.13, 2040: 6.23, 2050: 2.99}
+        Naphtha Hydrotreater:
+          spec_cons_wt: 0.12
+          utilized_capacity_mton: {2024: 76.67, 2030: 52.97, 2040: 14.52, 2050: 3.78}
+        Naphtha Isomerization:
+          spec_cons_wt: 0.09
+          utilized_capacity_mton: {2024: 18.38, 2030: 14.99, 2040: 2.86, 2050: 0.51}
