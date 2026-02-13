@@ -1,0 +1,16 @@
+{
+  "config_path": "config_olefins.yaml",
+  "olefins_input_csv": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/industry/data/raw/olefins.csv",
+  "activity_column_used": "olefins_production",
+  "countries_n": 27,
+  "years": {
+    "start": 2019,
+    "end": 2050
+  },
+  "linkage_enabled": true,
+  "scope": "petrochem_olefins",
+  "scenario_dirs": {
+    "bau-eu": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins/bau-eu",
+    "decarbo-eu": "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins/decarbo-eu"
+  }
+}

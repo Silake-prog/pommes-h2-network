@@ -1,0 +1,115 @@
+# -----------------------------------------------------------------------------
+# olefins_config.yaml
+# -----------------------------------------------------------------------------
+# Objet :
+#   Scénariser une demande H2 "pétrochimie - oléfines" à partir d'un proxy
+#   olefins.csv, en cohérence avec les deux scénarios refinery.
+#
+# Anti double comptabilité (principe) :
+#   - refinery-eu-demand => H2 des unités de raffinage (hydrocracking/hydrotreating…)
+#   - olefins-eu-demand  => H2 du périmètre "steam cracking / pétrochimie oléfines"
+#   => séparation via tag scope + agrégation contrôlée.
+# -----------------------------------------------------------------------------
+
+# -------------------------------------------------------------------
+# Horizon temporel
+# -------------------------------------------------------------------
+years:
+  start: 2019
+  end: 2050
+
+# -------------------------------------------------------------------
+# Entrées
+# -------------------------------------------------------------------
+input:
+  # CSV issu de votre notebook (export xarray) : country, year, scenario?, olefins_production
+  # NOTE : "olefins_production" est un proxy d'activité (unité non garantie = cf. README).
+  csv_path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/industry/data/raw/olefins.csv"
+  base_year: 2019
+  countries: ALL
+
+  # Colonne d'activité de base
+  activity_column: "olefins_production"
+  activity_unit: "MWh_proxy"
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+output:
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins"
+  scenario_dirs:
+    bau-eu: "bau-eu"
+    decarbo-eu: "decarbo-eu"
+  output_csv_name: "olefins.csv"
+
+  # Tag explicite pour éviter le double comptage à l'agrégation
+  scope: "petrochem_olefins"
+
+# -------------------------------------------------------------------
+# Cohérence inter-modules : correspondance des scénarios refinery
+# -------------------------------------------------------------------
+scenario_mapping:
+  # Mapping LOGIQUE :
+  # - more-molecule : maintien de la filière "molécules" (BAU)
+  # - max-electron  : électrification / substitution (DECARBO)
+  refinery_to_olefins:
+    more-molecule: bau-eu
+    max-electron: decarbo-eu
+
+# -------------------------------------------------------------------
+# Couplage macro d'activité avec refinery (cohérence des tendances)
+# -------------------------------------------------------------------
+linkage:
+  enabled: true
+  refinery_outputs_base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery"
+  refinery_output_csv_name: "refinery_eu_demand.csv"
+  refinery_activity_column: "refinery_output_total"
+  base_year: 2019
+  missing_country_policy: "keep_base"
+
+  refinery_scenario_dirs:
+    more-molecule: "refinery-eu-demand_more-molecule"
+    max-electron: "refinery-eu-demand_max-electron"
+
+# -------------------------------------------------------------------
+# Modèle de demande H2 (simple, traçable)
+# -------------------------------------------------------------------
+h2_demand_model:
+  # h2_demand(t) = activity(t) * h2_intensity(t)
+  #
+  # IMPORTANT :
+  # - activity(t) est un proxy ; l'intensité est un paramètre explicitement déclaré
+  #   (calibrable plus tard).
+  intensity_2019_tH2_per_activity_unit: 0.02
+
+  intensity_trajectory:
+    # rampe linéaire entre start et end vers un facteur multiplicatif en 2050
+    start: 2030
+    end: 2050
+
+    # Logique :
+    # - bau-eu : intensité quasi stable (peu de gains structurels)
+    # - decarbo-eu : baisse d'intensité (efficacité, électrification partielle, circularité)
+    scenario_factors_2050:
+      bau-eu: 0.95      # -5% vs 2019
+      decarbo-eu: 0.80  # -20% vs 2019
+
+  # Trajectoire autonome d'activité si linkage désactivé
+  activity_trajectory_if_no_linkage:
+    start: 2025
+    end: 2050
+    # Logique cohérente avec les noms :
+    # - BAU : déclin modéré
+    # - DECARBO : déclin plus marqué (substitution / baisse des volumes fossiles)
+    scenario_decline_2050:
+      bau-eu: 0.20
+      decarbo-eu: 0.50
+
+# -------------------------------------------------------------------
+# Contrôles / invariants
+# -------------------------------------------------------------------
+checks:
+  non_negative: true
+  full_year_coverage: true
+  enforce_scope_tag: true
+  warn_if_diverges_from_refinery_index: true

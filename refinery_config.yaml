@@ -20,7 +20,7 @@ input:
 # Sorties
 # -------------------------------------------------------------------
 output:
-  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenario-refinery"
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery"
   scenario_dirs:
     more-molecule: "refinery-eu-demand_more-molecule"
     max-electron: "refinery-eu-demand_max-electron"
