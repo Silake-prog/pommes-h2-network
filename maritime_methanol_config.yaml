@@ -1,0 +1,161 @@
+# =============================================================================
+# Maritime fuels module – Substitution interne du fuel marin fossile (proxy CONCAWE)
+# Couplé aux 2 scénarios refinery (more-molecule / max-electron)
+#
+# Objectif :
+#   1) Reconstituer un proxy de "fuel marin fossile" à partir de la base CONCAWE,
+#      en utilisant le Diesel Hydrotreater comme proxy du pool MGO / distillats marins.
+#   2) Définir une demande totale de fuels maritimes (en équivalent fuel fossile, t/an),
+#      avec 3 scénarios d’évolution (constant / +3% / -1%) à partir de 2025.
+#   3) Appliquer une substitution linéaire (pénétration croissante du CH3OH),
+#      puis ajuster si la disponibilité fossile CONCAWE est inférieure à la cible.
+#   4) Convertir l’équivalent "fuel fossile" substitué en masse de CH3OH via un facteur
+#      d’équivalence énergétique (PCI), puis calculer l’H2 associé à la production de CH3OH.
+#
+# IMPORTANT – unités :
+#   - Les colonnes "unit_feed" de CONCAWE sont supposées en tonnes/an.
+#   - Les sorties "*_t_per_yr" sont donc en tonnes/an.
+#   - Les conversions énergétiques utilisent le PCI (LHV) en MJ/kg.
+# =============================================================================
+
+years:
+  start: 2025
+  end: 2050
+  reference_year: 2025
+
+
+# -------------------------------------------------------------------
+# Entrées refinery : 2 fichiers (un par scénario)
+# -------------------------------------------------------------------
+refinery_inputs:
+
+  # Colonnes attendues dans refinery_eu_demand.csv (CONCAWE)
+  # NOTE : on renomme ces colonnes vers des noms internes standardisés.
+  schema:
+    country_column: "country"
+    scenario_column: "scenario"     # non utilisé ici (le scénario est donné par le chemin du fichier)
+    year_column: "year"
+    unit_column: "unit"
+    feed_column: "unit_feed"
+
+  scenarios:
+    more-molecule:
+      path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery/refinery-eu-demand_more-molecule/refinery_eu_demand.csv"
+    max-electron:
+      path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery/refinery-eu-demand_max-electron/refinery_eu_demand.csv"
+
+
+# -------------------------------------------------------------------
+# Proxy de production fossile "fuel maritime" (tonnes/an)
+# -------------------------------------------------------------------
+maritime_proxy:
+
+  # Unité CONCAWE utilisée comme proxy (pool MGO / distillats marins)
+  proxy_unit: "Diesel Hydrotreater"
+
+  # Coefficient paramétrique : part du feed du Diesel Hydrotreater correspondant à des fuels maritimes.
+  # Hypothèse (demandée) : 0.10
+  proxy_output_coeff_tFuel_per_tFeed: 0.10
+
+
+# -------------------------------------------------------------------
+# Substitution CH3OH : pénétration linéaire
+# -------------------------------------------------------------------
+substitution:
+
+  # Pénétration CH3OH (part de la demande totale couverte par CH3OH en équivalent énergétique)
+  # methanol_share(t) = min(target_2050, target_2050 * (t-reference_year)/(end_year-reference_year))
+  methanol_penetration:
+    target_share_2050: 0.80
+
+  # Règle d’ajustement (anti-incohérence)
+  #  - On calcule une cible fossile "marine_fossil_target" = marine_total * (1 - methanol_share).
+  #  - On ne peut pas consommer plus de fossile que ce que donne CONCAWE :
+  #       marine_fossil_used = min(marine_fossil_proxy, marine_fossil_target)
+  #  - Le reste est couvert par CH3OH :
+  #       marine_methanol_eq = marine_total - marine_fossil_used
+  mode: "linear_share_with_concawe_cap"
+
+
+# -------------------------------------------------------------------
+# Equivalences énergétiques (PCI / LHV)
+# -------------------------------------------------------------------
+energy:
+
+  # PCI (LHV) en MJ/kg
+  # - MGO (marine gas oil) : ~42.7 MJ/kg (ISO 8217 / datasheets)
+  # - CH3OH : ~19.9 MJ/kg
+  lhv_marine_fuel_mj_per_kg: 42.7
+  lhv_methanol_mj_per_kg: 19.9
+
+  # Conversion "equivalent fuel fossil (t)" -> "methanol (t)" par énergie :
+  #   methanol_t = marine_methanol_eq_t * (lhv_marine / lhv_methanol)
+  # NOTE : on suppose des rendements identiques côté usage (moteur) -> approximation.
+  use_energy_equivalence: true
+
+
+# -------------------------------------------------------------------
+# Paramètres CH3OH -> H2
+# -------------------------------------------------------------------
+methanol_parameters:
+
+  # Intensité H2 "chimique" (ordre de grandeur) :
+  #   CO2 + 3 H2 -> CH3OH + H2O
+  #   => 6 g H2 / 32 g CH3OH = 0.1875 tH2 / tCH3OH
+  # On arrondit à 0.19 tH2/tCH3OH par défaut.
+  h2_intensity_tH2_per_tMeOH: 0.19
+
+
+# -------------------------------------------------------------------
+# Scénarios de demande totale "fuels maritime" (équivalent fuel fossile)
+# marine_total(t) = marine_reference * (1+g)^(t-reference_year)
+# marine_reference = marine_fossil_used(reference_year) (proxy CONCAWE)
+# -------------------------------------------------------------------
+demand_scenarios:
+  constant-demand:
+    annual_growth_rate: 0.0
+  growth-3pct:
+    annual_growth_rate: 0.03
+  decline-1pct:
+    annual_growth_rate: -0.01
+
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+output:
+
+  # Les résultats sont écrits dans :
+  #   base_dir / refinery_scenario / demand_scenario / maritime_methanol.csv
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-maritime"
+
+  directory_structure:
+    level_1: "refinery_scenario"
+    level_2: "demand_scenario"
+
+  output_file_name: "maritime_methanol.csv"
+  scope_tag: "maritime_methanol"
+
+  # Mapping de noms de colonnes de sortie (pour garder un CSV stable côté pipeline)
+  columns:
+    refinery_scenario: "refinery_scenario"
+    demand_scenario: "demand_scenario"
+
+    marine_fossil_proxy: "marine_fossil_proxy_t_per_yr"
+    marine_total: "marine_total_t_per_yr"
+    marine_fossil_used: "marine_fossil_used_t_per_yr"
+    marine_methanol_eq: "marine_methanol_eq_t_per_yr"
+
+    methanol_mass: "methanol_t_per_yr"
+    h2_methanol: "h2_for_methanol_t_per_yr"
+
+    methanol_share: "methanol_share"
+
+
+# -------------------------------------------------------------------
+# Contrôles / Invariants
+# -------------------------------------------------------------------
+checks:
+  enforce_mass_balance: true        # marine_total = marine_fossil_used + marine_methanol_eq (en équivalent fuel)
+  non_negative_flows: true
+  full_year_coverage: true

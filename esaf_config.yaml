@@ -1,0 +1,187 @@
+# =============================================================================
+# eSAF module – Substitution interne stricte du kérosène fossile (CONCAWE)
+# Couplé aux 2 scénarios refinery
+# =============================================================================
+#
+# Logique générale :
+#  - Le module refinery fournit une trajectoire de kérosène fossile (structure industrielle).
+#  - Le module eSAF définit une demande aviation exogène.
+#  - Substitution interne stricte à partir d'une année de référence.
+#
+# Substitution stricte :
+#
+#   Jet_total(t)        = Jet_reference × (1+g)^(t-reference_year)
+#   Jet_reference       = Jet_fossil_refinery(reference_year)
+#
+#   Jet_fossil_adj(t)   = min(Jet_fossil_refinery(t), Jet_total(t))
+#   Jet_eSAF(t)         = Jet_total(t) - Jet_fossil_adj(t)
+#
+#   => Toujours :
+#      Jet_total = Jet_fossil_adj + Jet_eSAF
+#
+# Aucune double comptabilité entre unités refinery.
+# =============================================================================
+
+
+# -------------------------------------------------------------------
+# Horizon temporel
+# -------------------------------------------------------------------
+years:
+  start: 2025
+  end: 2050
+  reference_year: 2025
+
+
+# -------------------------------------------------------------------
+# Entrées refinery : 2 fichiers (un par scénario)
+# -------------------------------------------------------------------
+refinery_inputs:
+
+  # Colonnes attendues dans refinery_eu_demand.csv
+  schema:
+    country_column: "country"
+    scenario_column: "scenario"
+    year_column: "year"
+    unit_column: "unit"
+    feed_column: "unit_feed"
+
+  # Deux trajectoires structurelles CONCAWE
+  scenarios:
+    more-molecule:
+      path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery/refinery-eu-demand_more-molecule/refinery_eu_demand.csv"
+
+    max-electron:
+      path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery/refinery-eu-demand_max-electron/refinery_eu_demand.csv"
+
+
+  # -----------------------------------------------------------------
+  # Reconstruction du kérosène fossile (tonnes/an)
+  # -----------------------------------------------------------------
+  #
+  # Anti double comptage :
+  #   - Priorité au Kero Hydrotreater (production directe Jet)
+  #   - Fallback possible via hydrocrackers + rendements
+  #
+  jet_chain_units:
+    kero_hydrotreater: "Kero Hydrotreater"
+    vgo_hydrocracker: "VGO Hydrocracker"
+    residue_hydrocracker: "Residue Hydrocracker"
+
+  # Méthodes disponibles :
+  #
+  #   prefer_kero_hydrotreater :
+  #       Jet_fossil = feed(Kero Hydrotreater)
+  #       => Pas de double comptage
+  #
+  #   fallback_hydrocracker :
+  #       Jet_fossil = Σ (yield_u × feed_u)
+  #
+  jet_reconstruction_method: "prefer_kero_hydrotreater"
+
+  # Rendements utilisés uniquement si fallback_hydrocracker
+  jet_yields:
+    vgo_hydrocracker: 0.20
+    residue_hydrocracker: 0.10
+
+
+# -------------------------------------------------------------------
+# Hypothèses e-SAF (Power-to-Liquid)
+# -------------------------------------------------------------------
+#
+# Intensité H2 supposée constante sur la période.
+# Hypothèse simplificatrice :
+#   - Pas d'amélioration technologique endogène
+#   - Pas de co-produits
+#
+esaf_parameters:
+  h2_intensity_tH2_per_tSAF: 0.50
+
+
+# -------------------------------------------------------------------
+# Dynamiques de demande totale aviation
+# -------------------------------------------------------------------
+#
+# Jet_total(t) = Jet_reference × (1+g)^(t-reference_year)
+#
+# Trois scénarios :
+#   - constant-demand : demande stable
+#   - growth-3pct     : +3%/an
+#   - decline-1pct    : −1%/an
+#
+demand_scenarios:
+
+  constant-demand:
+    annual_growth_rate: 0.0
+
+  growth-3pct:
+    annual_growth_rate: 0.03
+
+  decline-1pct:
+    annual_growth_rate: -0.01
+
+
+# -------------------------------------------------------------------
+# Mode de substitution
+# -------------------------------------------------------------------
+#
+# strict :
+#   - Fossile plafonné par la demande aviation
+#   - eSAF comble l'écart
+#
+substitution:
+  mode: "strict"
+
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+#
+# Structure hiérarchique :
+#
+# base_dir /
+#    refinery_scenario /
+#        demand_scenario /
+#            esaf.csv
+#
+output:
+
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-esaf"
+
+  jet_fossil: "jet_fossil_kt_per_yr"
+  jet_total: "jet_total_kt_per_yr"
+  jet_esaf: "jet_esaf_kt_per_yr"
+  h2_esaf: "h2_esaf_kt_per_yr"
+
+  output_file_name: "esaf.csv"
+
+  scope_tag: "esaf_p2l"
+
+  # Colonnes exportées
+  columns:
+    refinery_scenario: "refinery_scenario"
+    demand_scenario: "demand_scenario"
+    jet_fossil: "jet_fossil_kt_per_yr"
+    jet_total: "jet_total_kt_per_yr"
+    jet_esaf: "jet_esaf_kt_per_yr"
+    h2_esaf: "h2_esaf_kt_per_yr"
+
+
+# -------------------------------------------------------------------
+# Contrôles / Invariants
+# -------------------------------------------------------------------
+#
+# enforce_mass_balance :
+#   Vérifie :
+#       Jet_total = Jet_fossil_adj + Jet_eSAF
+#
+# non_negative_flows :
+#   Aucun flux négatif autorisé
+#
+# full_year_coverage :
+#   Toutes les années doivent être présentes par pays
+#
+checks:
+
+  enforce_mass_balance: true
+  non_negative_flows: true
+  full_year_coverage: true

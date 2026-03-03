@@ -1,0 +1,141 @@
+# =============================================================================
+# OLEFINS (CONCAWE proxy) – Oléfines totales (raffinerie / FCC-proxy)
+# =============================================================================
+#
+# Objectif
+# --------
+# A partir des trajectoires de raffineries CONCAWE (fichiers refinery_eu_demand.csv),
+# reconstruire un proxy "oléfines totales" en s'appuyant sur un flux représentatif
+# de la route FCC (ici: *FCC Gasoline Hydrotreater*).
+#
+# Idée (proxy)
+# ------------
+# 1) Proxy raffinerie/FCC :
+#    Olefins_proxy_refinery(t) = coeff_fcc_to_olefins × Feed_FCC_gasoline_hydrotreater(t)
+#
+# 2) 3 scénarios de total à partir de l'année de référence (2025), comme eSAF :
+#    Olefins_total(t) = Olefins_ref × (1+g)^(t-reference_year)
+#    avec Olefins_ref = Olefins_proxy_refinery(reference_year)
+#
+# 3) Substitution stricte :
+#    Olefins_refinery_adj(t) = min(Olefins_proxy_refinery(t), Olefins_total(t))
+#    Olefins_nonrefinery(t)  = Olefins_total(t) - Olefins_refinery_adj(t)
+#
+# Extension (H2 + split non-refinery)
+# -----------------------------------
+# On ventile Olefins_nonrefinery en 3 composantes :
+#   - e-olefins
+#   - bio-e-olefins
+#   - bio-olefins
+# Et on calcule la demande H2 associée :
+#   H2_nonrefinery = (e-olefins + bio-e-olefins) * h2_intensity_eolefins
+#   H2_refinery    = olefins_refinery * h2_intensity_refinery_proxy
+#
+# Notes unités
+# ------------
+# Vous indiquez que refinery_output est en tonnes. Pour unit_feed, gardez un seul standard
+# (t/an). Si vos unit_feed sont déjà en t/an, scale_to_tonnes = 1.
+# =============================================================================
+
+years:
+  start: 2025
+  end: 2050
+  reference_year: 2025
+
+# -------------------------------------------------------------------
+# Unités / conversion
+# -------------------------------------------------------------------
+units:
+  refinery_feed_unit: "t_per_yr"        # "t_per_yr" ou "kt_per_yr"
+  scale_to_tonnes: 1                   # 1 si déjà en t/an ; 1000 si kt/an -> t/an
+
+# -------------------------------------------------------------------
+# Entrées refinery : 2 fichiers (un par scénario)
+# -------------------------------------------------------------------
+refinery_inputs:
+  schema:
+    country_column: "country"
+    scenario_column: "scenario"
+    year_column: "year"
+    unit_column: "unit"
+    feed_column: "unit_feed"
+
+  scenarios:
+    more-molecule:
+      path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery/refinery-eu-demand_more-molecule/refinery_eu_demand.csv"
+    max-electron:
+      path: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-refinery/refinery-eu-demand_max-electron/refinery_eu_demand.csv"
+
+# -------------------------------------------------------------------
+# Proxy oléfines (FCC-proxy)
+# -------------------------------------------------------------------
+olefins_proxy:
+  fcc_proxy_unit: "FCC Gasoline Hydrotreater"
+  coeff_fcc_to_olefins: 0.10   # t_olefins / t_feed_proxy
+
+# -------------------------------------------------------------------
+# Scénarios (3 dynamiques de total)
+# -------------------------------------------------------------------
+demand_scenarios:
+  constant-demand:
+    annual_growth_rate: 0.0
+  growth-3pct:
+    annual_growth_rate: 0.03
+  decline-1pct:
+    annual_growth_rate: -0.01
+
+# -------------------------------------------------------------------
+# Split "non refinery" + intensités H2
+# -------------------------------------------------------------------
+nonrefinery_split:
+  # Parts must sum to 1.0
+  e_olefins_share: 0.70
+  bio_e_olefins_share: 0.10
+  bio_olefins_share: 0.20
+
+h2_intensities:
+  # Intensité "e-olefins" (tH2 / t olefins) ~ 0.4286 via e-MeOH + MTO (paramétrique/calibrable)
+  h2_per_t_e_olefins: 0.4286
+
+  # Intensité proxy "raffinerie/FCC" (tH2 / t olefins proxy) - paramétrique
+  h2_per_t_refinery_proxy_olefins: 0.05
+
+  # Bio-olefins : si vous voulez forcer une conso H2 non nulle, mettez une valeur ici
+  h2_per_t_bio_olefins: 0.0
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+output:
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins-concawe"
+
+  directory_structure:
+    level_1: "refinery_scenario"
+    level_2: "demand_scenario"
+
+  output_file_name: "olefins.csv"
+  scope_tag: "olefins_concawe_fcc_proxy"
+
+  columns:
+    refinery_scenario: "refinery_scenario"
+    demand_scenario: "demand_scenario"
+
+    olefins_proxy_refinery: "olefins_proxy_refinery_t_per_yr"
+    olefins_refinery: "olefins_refinery_t_per_yr"
+    olefins_total: "olefins_total_t_per_yr"
+    olefins_nonrefinery: "olefins_nonrefinery_t_per_yr"
+
+    # Split nonrefinery
+    olefins_e: "olefins_e_t_per_yr"
+    olefins_bio_e: "olefins_bio_e_t_per_yr"
+    olefins_bio: "olefins_bio_t_per_yr"
+
+    # H2
+    h2_refinery: "h2_refinery_t_per_yr"
+    h2_nonrefinery: "h2_nonrefinery_t_per_yr"
+    h2_total: "h2_total_t_per_yr"
+
+checks:
+  enforce_mass_balance: true
+  non_negative_flows: true
+  full_year_coverage: true

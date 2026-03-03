@@ -1,0 +1,79 @@
+# =============================================================================
+# OLEFINS – Décomposition FCC / Steam Cracker
+# Module "fcc-cracker"
+# =============================================================================
+#
+# Objectif :
+#   Réconcilier :
+#     1) olefins (total base – pétrochimie globale)
+#     2) olefins-concawe (proxy raffinerie / FCC)
+#
+# Hypothèse :
+#   Olefins_total_base = Olefins_refinery_proxy + Olefins_steamcracker_residual
+#
+#   Steamcracker(t) = max(0, total_base(t) - refinery_proxy(t))
+# =============================================================================
+
+years:
+  start: 2025
+  end: 2050
+
+# -------------------------------------------------------------------
+# Entrées
+# -------------------------------------------------------------------
+inputs:
+
+  total_base:
+    base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins"
+    scenario_dirs:
+      bau-eu: "bau-eu"
+      decarbo-eu: "decarbo-eu"
+    file_name: "olefins.csv"
+    activity_column: "olefins_production"
+
+  refinery_proxy:
+    base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins-concawe"
+    file_name: "olefins.csv"
+    activity_column: "olefins_refinery_t_per_yr"
+
+# -------------------------------------------------------------------
+# Mapping scénarios
+# -------------------------------------------------------------------
+scenario_mapping:
+
+  total_to_refinery:
+    bau-eu: more-molecule
+    decarbo-eu: max-electron
+
+# -------------------------------------------------------------------
+# Sorties
+# -------------------------------------------------------------------
+output:
+
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins-fcc-cracker"
+
+  directory_structure:
+    level_1: "total_scenario"
+    level_2: "refinery_scenario"
+
+  output_file_name: "olefins_split.csv"
+
+  columns:
+    total_scenario: "total_scenario"
+    refinery_scenario: "refinery_scenario"
+
+    olefins_total_base: "olefins_total_base_t_per_yr"
+    olefins_refinery_proxy: "olefins_refinery_proxy_t_per_yr"
+    olefins_steamcracker: "olefins_steamcracker_t_per_yr"
+
+    share_refinery: "share_refinery"
+    share_steamcracker: "share_steamcracker"
+
+# -------------------------------------------------------------------
+# Contrôles
+# -------------------------------------------------------------------
+checks:
+  non_negative: true
+  full_year_coverage: true
+  warn_if_proxy_exceeds_total: true
+  enforce_mass_balance_identity: true

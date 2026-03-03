@@ -1,0 +1,590 @@
+area,techno,year,production_yearly,hydrogen_demand,source
+BE,BF-BOF,2020,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2021,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2022,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2023,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2024,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2025,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2026,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2027,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2028,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2029,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2030,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2031,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2032,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2033,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2034,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2035,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2036,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2037,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2038,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2039,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2040,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2041,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2042,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2043,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2044,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2045,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2046,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2047,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2048,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2049,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,BF-BOF,2050,5250000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2020,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2021,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2022,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2023,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2024,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2025,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2026,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2027,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2028,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2029,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2030,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2031,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2032,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2033,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2034,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2035,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2036,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2037,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2038,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2039,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2040,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2041,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2042,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2043,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2044,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2045,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2046,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2047,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2048,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2049,1750000.0,0.0,Steel BEL - Rapports 2024
+BE,EAF,2050,1750000.0,0.0,Steel BEL - Rapports 2024
+DE,BF-BOF,2020,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2021,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2022,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2023,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2024,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2025,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2026,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2027,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2028,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2029,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2030,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2031,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2032,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2033,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2034,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2035,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2036,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2037,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2038,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2039,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2040,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2041,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2042,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2043,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2044,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2045,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2046,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2047,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2048,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2049,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,BF-BOF,2050,25900000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2020,0.0,0.0,None
+DE,EAF,2021,0.0,0.0,None
+DE,EAF,2022,0.0,0.0,None
+DE,EAF,2023,0.0,0.0,None
+DE,EAF,2024,0.0,0.0,None
+DE,EAF,2025,0.0,0.0,None
+DE,EAF,2026,0.0,0.0,None
+DE,EAF,2027,0.0,0.0,None
+DE,EAF,2028,0.0,0.0,None
+DE,EAF,2029,0.0,0.0,None
+DE,EAF,2030,0.0,0.0,None
+DE,EAF,2031,0.0,0.0,None
+DE,EAF,2032,0.0,0.0,None
+DE,EAF,2033,0.0,0.0,None
+DE,EAF,2034,0.0,0.0,None
+DE,EAF,2035,0.0,0.0,None
+DE,EAF,2036,0.0,0.0,None
+DE,EAF,2037,0.0,0.0,None
+DE,EAF,2038,0.0,0.0,None
+DE,EAF,2039,0.0,0.0,None
+DE,EAF,2040,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2041,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2042,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2043,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2044,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2045,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2046,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2047,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2048,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2049,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+DE,EAF,2050,11100000.0,0.0,Stahl - Facts and Figures about the steel industry in Germany
+ES,BF-BOF,2020,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2021,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2022,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2023,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2024,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2025,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2026,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2027,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2028,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2029,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2030,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2031,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2032,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2033,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2034,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2035,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2036,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2037,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2038,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2039,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2040,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2041,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2042,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2043,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2044,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2045,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2046,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2047,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2048,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2049,3000000.0,0.0,Energy Transitions Commissions
+ES,BF-BOF,2050,3000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2020,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2021,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2022,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2023,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2024,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2025,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2026,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2027,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2028,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2029,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2030,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2031,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2032,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2033,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2034,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2035,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2036,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2037,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2038,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2039,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2040,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2041,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2042,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2043,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2044,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2045,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2046,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2047,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2048,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2049,8000000.0,0.0,Energy Transitions Commissions
+ES,EAF,2050,8000000.0,0.0,Energy Transitions Commissions
+FR,BF-BOF,2020,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2021,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2022,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2023,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2024,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2025,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2026,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2027,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2028,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2029,10000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,BF-BOF,2030,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2031,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2032,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2033,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2034,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2035,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2036,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2037,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2038,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2039,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2040,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2041,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2042,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2043,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2044,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2045,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2046,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2047,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2048,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2049,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,BF-BOF,2050,7500000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,EAF,2020,0.0,0.0,None
+FR,EAF,2021,0.0,0.0,None
+FR,EAF,2022,0.0,0.0,None
+FR,EAF,2023,0.0,0.0,None
+FR,EAF,2024,0.0,0.0,None
+FR,EAF,2025,0.0,0.0,None
+FR,EAF,2026,0.0,0.0,None
+FR,EAF,2027,0.0,0.0,None
+FR,EAF,2028,0.0,0.0,None
+FR,EAF,2029,0.0,0.0,None
+FR,EAF,2030,0.0,0.0,None
+FR,EAF,2031,0.0,0.0,None
+FR,EAF,2032,0.0,0.0,None
+FR,EAF,2033,0.0,0.0,None
+FR,EAF,2034,0.0,0.0,None
+FR,EAF,2035,0.0,0.0,None
+FR,EAF,2036,0.0,0.0,None
+FR,EAF,2037,0.0,0.0,None
+FR,EAF,2038,0.0,0.0,None
+FR,EAF,2039,0.0,0.0,None
+FR,EAF,2040,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2041,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2042,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2043,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2044,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2045,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2046,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2047,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2048,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2049,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,EAF,2050,1000000.0,0.0,ADEME - Plan de Transition Sectoriel de l'Acier
+FR,DRI-EAF_CH4,2020,0.0,0.0,None
+FR,DRI-EAF_CH4,2021,0.0,0.0,None
+FR,DRI-EAF_CH4,2022,0.0,0.0,None
+FR,DRI-EAF_CH4,2023,0.0,0.0,None
+FR,DRI-EAF_CH4,2024,0.0,0.0,None
+FR,DRI-EAF_CH4,2025,0.0,0.0,None
+FR,DRI-EAF_CH4,2026,0.0,0.0,None
+FR,DRI-EAF_CH4,2027,0.0,0.0,None
+FR,DRI-EAF_CH4,2028,0.0,0.0,None
+FR,DRI-EAF_CH4,2029,0.0,0.0,None
+FR,DRI-EAF_CH4,2030,1000000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2031,1150000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2032,1300000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2033,1450000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2034,1600000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2035,1750000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2036,1900000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2037,2050000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2038,2200000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2039,2350000.0,0.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_CH4,2040,0.0,0.0,None
+FR,DRI-EAF_CH4,2041,0.0,0.0,None
+FR,DRI-EAF_CH4,2042,0.0,0.0,None
+FR,DRI-EAF_CH4,2043,0.0,0.0,None
+FR,DRI-EAF_CH4,2044,0.0,0.0,None
+FR,DRI-EAF_CH4,2045,0.0,0.0,None
+FR,DRI-EAF_CH4,2046,0.0,0.0,None
+FR,DRI-EAF_CH4,2047,0.0,0.0,None
+FR,DRI-EAF_CH4,2048,0.0,0.0,None
+FR,DRI-EAF_CH4,2049,0.0,0.0,None
+FR,DRI-EAF_CH4,2050,0.0,0.0,None
+FR,DRI-EAF_H2,2020,0.0,0.0,None
+FR,DRI-EAF_H2,2021,0.0,0.0,None
+FR,DRI-EAF_H2,2022,0.0,0.0,None
+FR,DRI-EAF_H2,2023,0.0,0.0,None
+FR,DRI-EAF_H2,2024,0.0,0.0,None
+FR,DRI-EAF_H2,2025,0.0,0.0,None
+FR,DRI-EAF_H2,2026,0.0,0.0,None
+FR,DRI-EAF_H2,2027,0.0,0.0,None
+FR,DRI-EAF_H2,2028,0.0,0.0,None
+FR,DRI-EAF_H2,2029,0.0,0.0,None
+FR,DRI-EAF_H2,2030,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2031,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2032,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2033,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2034,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2035,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2036,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2037,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2038,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2039,2500000.0,187500.0,France Stratégie - Rapports coûts abattements
+FR,DRI-EAF_H2,2040,0.0,0.0,None
+FR,DRI-EAF_H2,2041,0.0,0.0,None
+FR,DRI-EAF_H2,2042,0.0,0.0,None
+FR,DRI-EAF_H2,2043,0.0,0.0,None
+FR,DRI-EAF_H2,2044,0.0,0.0,None
+FR,DRI-EAF_H2,2045,0.0,0.0,None
+FR,DRI-EAF_H2,2046,0.0,0.0,None
+FR,DRI-EAF_H2,2047,0.0,0.0,None
+FR,DRI-EAF_H2,2048,0.0,0.0,None
+FR,DRI-EAF_H2,2049,0.0,0.0,None
+FR,DRI-EAF_H2,2050,0.0,0.0,None
+IT,BF-BOF,2020,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2021,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2022,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2023,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2024,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2025,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2026,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2027,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2028,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2029,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2030,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2031,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2032,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2033,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2034,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2035,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2036,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2037,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2038,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2039,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2040,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2041,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2042,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2043,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2044,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2045,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2046,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2047,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2048,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2049,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,BF-BOF,2050,3.15,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2020,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2021,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2022,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2023,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2024,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2025,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2026,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2027,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2028,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2029,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2030,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2031,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2032,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2033,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2034,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2035,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2036,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2037,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2038,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2039,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2040,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2041,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2042,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2043,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2044,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2045,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2046,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2047,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2048,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2049,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+IT,EAF,2050,17850000.0,0.0,Brief - Cassa Depositi e Prestiti
+RO,BF-BOF,2020,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2021,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2022,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2023,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2024,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2025,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2026,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2027,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2028,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2029,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2030,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2031,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2032,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2033,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2034,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2035,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2036,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2037,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2038,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2039,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2040,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2041,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2042,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2043,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2044,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2045,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2046,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2047,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2048,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2049,909500.0,0.0,JRC - 2023
+RO,BF-BOF,2050,909500.0,0.0,JRC - 2023
+RO,EAF,2020,800000.0,0.0,JRC - 2023
+RO,EAF,2021,800000.0,0.0,JRC - 2023
+RO,EAF,2022,800000.0,0.0,JRC - 2023
+RO,EAF,2023,800000.0,0.0,JRC - 2023
+RO,EAF,2024,800000.0,0.0,JRC - 2023
+RO,EAF,2025,800000.0,0.0,JRC - 2023
+RO,EAF,2026,800000.0,0.0,JRC - 2023
+RO,EAF,2027,800000.0,0.0,JRC - 2023
+RO,EAF,2028,800000.0,0.0,JRC - 2023
+RO,EAF,2029,800000.0,0.0,JRC - 2023
+RO,EAF,2030,800000.0,0.0,JRC - 2023
+RO,EAF,2031,800000.0,0.0,JRC - 2023
+RO,EAF,2032,800000.0,0.0,JRC - 2023
+RO,EAF,2033,800000.0,0.0,JRC - 2023
+RO,EAF,2034,800000.0,0.0,JRC - 2023
+RO,EAF,2035,800000.0,0.0,JRC - 2023
+RO,EAF,2036,800000.0,0.0,JRC - 2023
+RO,EAF,2037,800000.0,0.0,JRC - 2023
+RO,EAF,2038,800000.0,0.0,JRC - 2023
+RO,EAF,2039,800000.0,0.0,JRC - 2023
+RO,EAF,2040,800000.0,0.0,JRC - 2023
+RO,EAF,2041,800000.0,0.0,JRC - 2023
+RO,EAF,2042,800000.0,0.0,JRC - 2023
+RO,EAF,2043,800000.0,0.0,JRC - 2023
+RO,EAF,2044,800000.0,0.0,JRC - 2023
+RO,EAF,2045,800000.0,0.0,JRC - 2023
+RO,EAF,2046,800000.0,0.0,JRC - 2023
+RO,EAF,2047,800000.0,0.0,JRC - 2023
+RO,EAF,2048,800000.0,0.0,JRC - 2023
+RO,EAF,2049,800000.0,0.0,JRC - 2023
+RO,EAF,2050,800000.0,0.0,JRC - 2023
+SE,BF-BOF,2020,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2021,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2022,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2023,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2024,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2025,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2026,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2027,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2028,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2029,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2030,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2031,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2032,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2033,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2034,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2035,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2036,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2037,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2038,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2039,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2040,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2041,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2042,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2043,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2044,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2045,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2046,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2047,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2048,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2049,2950000.0,0.0,JRC - 2023
+SE,BF-BOF,2050,2950000.0,0.0,JRC - 2023
+SE,EAF,2020,1350000.0,0.0,JRC - 2023
+SE,EAF,2021,1350000.0,0.0,JRC - 2023
+SE,EAF,2022,1350000.0,0.0,JRC - 2023
+SE,EAF,2023,1350000.0,0.0,JRC - 2023
+SE,EAF,2024,1350000.0,0.0,JRC - 2023
+SE,EAF,2025,1350000.0,0.0,JRC - 2023
+SE,EAF,2026,1350000.0,0.0,JRC - 2023
+SE,EAF,2027,1350000.0,0.0,JRC - 2023
+SE,EAF,2028,1350000.0,0.0,JRC - 2023
+SE,EAF,2029,1350000.0,0.0,JRC - 2023
+SE,EAF,2030,1350000.0,0.0,JRC - 2023
+SE,EAF,2031,1350000.0,0.0,JRC - 2023
+SE,EAF,2032,1350000.0,0.0,JRC - 2023
+SE,EAF,2033,1350000.0,0.0,JRC - 2023
+SE,EAF,2034,1350000.0,0.0,JRC - 2023
+SE,EAF,2035,1350000.0,0.0,JRC - 2023
+SE,EAF,2036,1350000.0,0.0,JRC - 2023
+SE,EAF,2037,1350000.0,0.0,JRC - 2023
+SE,EAF,2038,1350000.0,0.0,JRC - 2023
+SE,EAF,2039,1350000.0,0.0,JRC - 2023
+SE,EAF,2040,1350000.0,0.0,JRC - 2023
+SE,EAF,2041,1350000.0,0.0,JRC - 2023
+SE,EAF,2042,1350000.0,0.0,JRC - 2023
+SE,EAF,2043,1350000.0,0.0,JRC - 2023
+SE,EAF,2044,1350000.0,0.0,JRC - 2023
+SE,EAF,2045,1350000.0,0.0,JRC - 2023
+SE,EAF,2046,1350000.0,0.0,JRC - 2023
+SE,EAF,2047,1350000.0,0.0,JRC - 2023
+SE,EAF,2048,1350000.0,0.0,JRC - 2023
+SE,EAF,2049,1350000.0,0.0,JRC - 2023
+SE,EAF,2050,1350000.0,0.0,JRC - 2023
+SK,BF-BOF,2020,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2021,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2022,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2023,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2024,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2025,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2026,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2027,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2028,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2029,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2030,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2031,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2032,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2033,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2034,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2035,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2036,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2037,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2038,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2039,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2040,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2041,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2042,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2043,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2044,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2045,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2046,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2047,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2048,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2049,4100000.0,0.0,JRC - 2023
+SK,BF-BOF,2050,4100000.0,0.0,JRC - 2023
+SK,EAF,2020,245000.0,0.0,JRC - 2023
+SK,EAF,2021,245000.0,0.0,JRC - 2023
+SK,EAF,2022,245000.0,0.0,JRC - 2023
+SK,EAF,2023,245000.0,0.0,JRC - 2023
+SK,EAF,2024,245000.0,0.0,JRC - 2023
+SK,EAF,2025,245000.0,0.0,JRC - 2023
+SK,EAF,2026,245000.0,0.0,JRC - 2023
+SK,EAF,2027,245000.0,0.0,JRC - 2023
+SK,EAF,2028,245000.0,0.0,JRC - 2023
+SK,EAF,2029,245000.0,0.0,JRC - 2023
+SK,EAF,2030,245000.0,0.0,JRC - 2023
+SK,EAF,2031,245000.0,0.0,JRC - 2023
+SK,EAF,2032,245000.0,0.0,JRC - 2023
+SK,EAF,2033,245000.0,0.0,JRC - 2023
+SK,EAF,2034,245000.0,0.0,JRC - 2023
+SK,EAF,2035,245000.0,0.0,JRC - 2023
+SK,EAF,2036,245000.0,0.0,JRC - 2023
+SK,EAF,2037,245000.0,0.0,JRC - 2023
+SK,EAF,2038,245000.0,0.0,JRC - 2023
+SK,EAF,2039,245000.0,0.0,JRC - 2023
+SK,EAF,2040,245000.0,0.0,JRC - 2023
+SK,EAF,2041,245000.0,0.0,JRC - 2023
+SK,EAF,2042,245000.0,0.0,JRC - 2023
+SK,EAF,2043,245000.0,0.0,JRC - 2023
+SK,EAF,2044,245000.0,0.0,JRC - 2023
+SK,EAF,2045,245000.0,0.0,JRC - 2023
+SK,EAF,2046,245000.0,0.0,JRC - 2023
+SK,EAF,2047,245000.0,0.0,JRC - 2023
+SK,EAF,2048,245000.0,0.0,JRC - 2023
+SK,EAF,2049,245000.0,0.0,JRC - 2023
+SK,EAF,2050,245000.0,0.0,JRC - 2023
+SL,EAF,2020,550000.0,0.0,JRC - 2023
+SL,EAF,2021,550000.0,0.0,JRC - 2023
+SL,EAF,2022,550000.0,0.0,JRC - 2023
+SL,EAF,2023,550000.0,0.0,JRC - 2023
+SL,EAF,2024,550000.0,0.0,JRC - 2023
+SL,EAF,2025,550000.0,0.0,JRC - 2023
+SL,EAF,2026,550000.0,0.0,JRC - 2023
+SL,EAF,2027,550000.0,0.0,JRC - 2023
+SL,EAF,2028,550000.0,0.0,JRC - 2023
+SL,EAF,2029,550000.0,0.0,JRC - 2023
+SL,EAF,2030,550000.0,0.0,JRC - 2023
+SL,EAF,2031,550000.0,0.0,JRC - 2023
+SL,EAF,2032,550000.0,0.0,JRC - 2023
+SL,EAF,2033,550000.0,0.0,JRC - 2023
+SL,EAF,2034,550000.0,0.0,JRC - 2023
+SL,EAF,2035,550000.0,0.0,JRC - 2023
+SL,EAF,2036,550000.0,0.0,JRC - 2023
+SL,EAF,2037,550000.0,0.0,JRC - 2023
+SL,EAF,2038,550000.0,0.0,JRC - 2023
+SL,EAF,2039,550000.0,0.0,JRC - 2023
+SL,EAF,2040,550000.0,0.0,JRC - 2023
+SL,EAF,2041,550000.0,0.0,JRC - 2023
+SL,EAF,2042,550000.0,0.0,JRC - 2023
+SL,EAF,2043,550000.0,0.0,JRC - 2023
+SL,EAF,2044,550000.0,0.0,JRC - 2023
+SL,EAF,2045,550000.0,0.0,JRC - 2023
+SL,EAF,2046,550000.0,0.0,JRC - 2023
+SL,EAF,2047,550000.0,0.0,JRC - 2023
+SL,EAF,2048,550000.0,0.0,JRC - 2023
+SL,EAF,2049,550000.0,0.0,JRC - 2023
+SL,EAF,2050,550000.0,0.0,JRC - 2023
