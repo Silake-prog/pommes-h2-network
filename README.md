@@ -217,7 +217,7 @@ Chaque valeur doit être :
 1) **Homogénéisation des unités**
    - verrouiller définitivement l’unité des fichiers amont (t/an vs kt/an) et supprimer les ambiguïtés.
 
-2)**Eventuellement vérifier la rédaction des fonctions**
+2) **Eventuellement vérifier la rédaction des fonctions**
    - Repasser sur les fonctions en cas de doute sur les sorties de résultats. Les rendre plus lisibles, si besoin. 
 
 2) **Sourcing systématique**
