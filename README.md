@@ -29,7 +29,7 @@ Deux sources principales sont mobilisées de manière complémentaire :
 L’hydrogène intervient selon des mécanismes qui peuvent coexister au sein d’un même secteur :
 
 1. **Substitution d’un intrant / agent réactionnel carboné dans un procédé existant**  
-   Exemple : décarbonation progressive d’une filière industrielle sans changer la nature du produit final (acier bas carbone via DRI-H₂, etc.).
+   Exemple : décarbonation progressive d’une filière industrielle sans changer la nature du produit final (acier bas carbone via BF-BOF-H₂, etc.).
 
 2. **Structuration de nouveaux débouchés sectoriels et reconfiguration des chaînes de valeur**  
    Exemple : montée en puissance de filières “nouvelle architecture” (DRI–EAF–H₂ dans l’acier ; e-fuels ; e-molécules), qui modifient les flux énergétiques, la localisation des sites et les besoins en H₂.
