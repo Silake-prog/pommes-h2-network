@@ -162,7 +162,7 @@ Les sorties sont “taggées” (scope / scope_tag) pour distinguer :
 
 ---
 
-### F) Module “Oléfines-CONCAWE (FCC proxy)”
+### F) Module “Oléfines (FCC proxy)”
 **But :** reconstruire un proxy “oléfines raffinerie/FCC” à partir de CONCAWE, définir une demande totale d’oléfines (3 scénarios), puis décomposer strictement en “raffinerie” vs “non-raffinerie”, avec ventilation non-raffinerie (e-oléfines, bio-e, bio) et demande H₂ associée.
 
 **Proxy choisi**

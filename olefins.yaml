@@ -107,7 +107,7 @@ h2_intensities:
 # Sorties
 # -------------------------------------------------------------------
 output:
-  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins-concawe"
+  base_dir: "/Users/simonbrigode/Desktop/tp_pommes_kraft/data_country/industry/pommes-h2-network/data-pommes/scenarios-olefins"
 
   directory_structure:
     level_1: "refinery_scenario"
